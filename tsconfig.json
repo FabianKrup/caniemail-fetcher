@@ -1,0 +1,115 @@
+{
+    "compilerOptions": {
+        // Type Checking
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        // alwaysStrict (from strict)
+        "exactOptionalPropertyTypes": true,
+        "noFallthroughCasesInSwitch": true,
+        // noImplicitAny (from strict)
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        // noImplicitThis (from strict)
+        "noPropertyAccessFromIndexSignature": false,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strict": true,
+        // strictBindCallApply (from strict)
+        "strictBuiltinIteratorReturn": true,
+        // strictFunctionTypes (from strict)
+        // strictNullChecks (from strict)
+        // strictPropertyInitialization (from strict)
+        // useUnknownInCatchVariables (from strict)
+
+        // Modules
+        // allowArbitraryExtensions
+        "allowImportingTsExtensions": false,
+        // allowUmdGlobalAccess
+        // baseUrl
+        // customConditions
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        // moduleSuffixes
+        // noResolve
+        // noUncheckedSideEffectImports
+        // paths
+        "resolveJsonModule": true,
+        // resolvePackageJsonExports (default: true)
+        // resolvePackageJsonImports (default: true)
+        "rootDir": "./src",
+        // rootDirs
+        // typeRoots
+        "types": ["node"],
+
+        // Emit
+        "declaration": true,
+        "declarationDir": "./types",
+        "declarationMap": true,
+        "noEmit": false,
+        "outDir": "./dist",
+        "removeComments": true,
+        "sourceMap": true,
+
+        // Javascript Support
+        "allowJs": true,
+        "checkJs": true,
+        // maxNodeModuleJsDepth (default: 0)
+
+        // Editor Support
+        // disableSizeLimit (default: false)
+        // plugins
+
+        // Interop Constraints
+        // allowSyntheticDefaultImports
+        "esModuleInterop": true,
+        // forceConsistentCasingInFileNames (default: true)
+        // isolatedDeclarations
+        // isolatedModules (default: true)
+        // preserveSymlinks
+        "verbatimModuleSyntax": true,
+
+        // Backwards Compatibility
+
+        // Language and Environment
+        // emitDecoratorMetadata (default: false)
+        // experimentalDecorators (default: false)
+        "jsx": "react-jsx",
+        // jsxFactory (default: React.createElement)
+        // jsxFragmentFactory (default: React.Fragment)
+        // jsxImportSource (default: react)
+        "lib": ["ESNext"],
+        "moduleDetection": "force",
+        // noLib (default: false)
+        // reactNamespace (default: React)
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+
+        // Compiler Diagnostics
+        // explainFiles (default: false)
+        // extendedDiagnostics (default: false)
+        // generateCpuProfile (default: false)
+        // generateTrace (default: false)
+        "listEmittedFiles": true,
+        // listFiles (default: false)
+        // noCheck (default: false)
+        // traceResolution (default: false)
+
+        // Projects
+        // composite (default: false)
+        // disableReferencedProjectLoad (default: false)
+        // disableSolutionSearching (default: false)
+        // disableSourceOfProjectReferenceRedirect (default: false)
+        "incremental": true,
+        "tsBuildInfoFile": "./.tsbuildinfo",
+
+        // Output Formatting
+        // noErrorTruncation (default: false)
+        // preserveWatchOutput (default: false)
+        // pretty (default: true)
+
+        // Completeness
+        // skipDefaultLibCheck (default: false)
+        "skipLibCheck": true
+    }
+}
