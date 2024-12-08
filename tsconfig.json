@@ -24,12 +24,12 @@
 
         // Modules
         // allowArbitraryExtensions
-        "allowImportingTsExtensions": false,
+        "allowImportingTsExtensions": true,
         // allowUmdGlobalAccess
         // baseUrl
         // customConditions
-        "module": "nodenext",
-        "moduleResolution": "nodenext",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
         // moduleSuffixes
         // noResolve
         // noUncheckedSideEffectImports
@@ -46,6 +46,7 @@
         "declaration": true,
         "declarationDir": "./types",
         "declarationMap": true,
+        "emitDeclarationOnly": true,
         "noEmit": false,
         "outDir": "./dist",
         "removeComments": true,
@@ -111,5 +112,6 @@
         // Completeness
         // skipDefaultLibCheck (default: false)
         "skipLibCheck": true
-    }
+    },
+    "include": ["./src/**/*"]
 }
