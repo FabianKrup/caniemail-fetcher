@@ -24,7 +24,7 @@
 
         // Modules
         // allowArbitraryExtensions
-        "allowImportingTsExtensions": true,
+        "allowImportingTsExtensions": false,
         // allowUmdGlobalAccess
         // baseUrl
         // customConditions
@@ -46,7 +46,7 @@
         "declaration": true,
         "declarationDir": "./types",
         "declarationMap": true,
-        "emitDeclarationOnly": true,
+        "emitDeclarationOnly": false,
         "noEmit": false,
         "outDir": "./dist",
         "removeComments": true,
