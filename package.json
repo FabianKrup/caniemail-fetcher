@@ -8,7 +8,7 @@
         "ci": "bun run build && bun run check-format && bun run check-exports && bun run lint",
         "format": "prettier --write .",
         "check-format": "prettier --check .",
-        "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
+        "check-exports": "attw --pack .",
         "lint": "tsc"
     },
     "files": [
@@ -18,7 +18,8 @@
     "exports": {
         "./package.json": "./package.json",
         ".": {
-            "import": "./dist/main.js"
+            "import": "./dist/main.js",
+            "require": "./dist/main.cjs"
         }
     },
     "devDependencies": {
