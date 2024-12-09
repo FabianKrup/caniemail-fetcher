@@ -9,7 +9,9 @@
         "format": "prettier --write .",
         "check-format": "prettier --check . --ignore-rules=cjs-resolves-to-esm",
         "check-exports": "attw --pack .",
-        "lint": "tsc"
+        "lint": "tsc",
+        "snyk-test": "snyk test",
+        "snyk-monitor": "snyk monitor"
     },
     "files": [
         "dist"
@@ -28,6 +30,7 @@
         "@types/node": "^22.10.1",
         "@types/sqlite3": "^3.1.11",
         "prettier": "^3.4.2",
+        "snyk": "^1.1294.2",
         "tsup": "^8.3.5",
         "typescript": "^5.7.2"
     },
