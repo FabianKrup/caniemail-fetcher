@@ -2,7 +2,18 @@
     "name": "caniemail-fetcher",
     "version": "1.0.0",
     "main": "dist/main.js",
+    "license": "MIT",
     "type": "module",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        "./package.json": "./package.json",
+        ".": {
+            "import": "./dist/main.js",
+            "require": "./dist/main.cjs"
+        }
+    },
     "scripts": {
         "build": "tsup",
         "ci": "bun run build && bun run check-format && bun run check-exports && bun run lint",
@@ -13,16 +24,9 @@
         "snyk-test": "snyk test",
         "snyk-monitor": "snyk monitor"
     },
-    "files": [
-        "dist"
-    ],
-    "license": "MIT",
-    "exports": {
-        "./package.json": "./package.json",
-        ".": {
-            "import": "./dist/main.js",
-            "require": "./dist/main.cjs"
-        }
+    "dependencies": {
+        "axios": "^1.7.9",
+        "sqlite3": "^5.1.7"
     },
     "devDependencies": {
         "@arethetypeswrong/cli": "^0.17.1",
@@ -33,9 +37,5 @@
         "snyk": "^1.1294.2",
         "tsup": "^8.3.5",
         "typescript": "^5.7.2"
-    },
-    "dependencies": {
-        "axios": "^1.7.9",
-        "sqlite3": "^5.1.7"
     }
 }
