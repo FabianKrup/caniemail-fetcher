@@ -18,7 +18,7 @@
     "exports": {
         "./package.json": "./package.json",
         ".": {
-            "import": "./dist/index.js"
+            "import": "./dist/main.js"
         }
     },
     "devDependencies": {
