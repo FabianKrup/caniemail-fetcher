@@ -91,7 +91,7 @@
         // extendedDiagnostics (default: false)
         // generateCpuProfile (default: false)
         // generateTrace (default: false)
-        "listEmittedFiles": true,
+        // "listEmittedFiles": true, (noEmit)
         // listFiles (default: false)
         // noCheck (default: false)
         // traceResolution (default: false)
@@ -101,8 +101,8 @@
         // disableReferencedProjectLoad (default: false)
         // disableSolutionSearching (default: false)
         // disableSourceOfProjectReferenceRedirect (default: false)
-        "incremental": true,
-        "tsBuildInfoFile": "./.tsbuildinfo",
+        // "incremental": true, (noEmit)
+        // "tsBuildInfoFile": "./.tsbuildinfo", (noEmit)
 
         // Output Formatting
         // noErrorTruncation (default: false)
