@@ -40,7 +40,7 @@
         // "rootDir": "./src", (noEmit)
         // rootDirs
         // typeRoots
-        "types": ["node"],
+        "types": ["node", "bun"],
 
         // Emit
         // "declaration": true, (noEmit)
