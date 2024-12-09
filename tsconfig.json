@@ -24,7 +24,7 @@
 
         // Modules
         // allowArbitraryExtensions
-        "allowImportingTsExtensions": false,
+        "allowImportingTsExtensions": true,
         // allowUmdGlobalAccess
         // baseUrl
         // customConditions
@@ -37,20 +37,20 @@
         "resolveJsonModule": true,
         // resolvePackageJsonExports (default: true)
         // resolvePackageJsonImports (default: true)
-        "rootDir": "./src",
+        // "rootDir": "./src", (noEmit)
         // rootDirs
         // typeRoots
         "types": ["node"],
 
         // Emit
-        "declaration": true,
-        "declarationDir": "./types",
-        "declarationMap": true,
-        "emitDeclarationOnly": false,
-        "noEmit": false,
-        "outDir": "./dist",
-        "removeComments": true,
-        "sourceMap": true,
+        // "declaration": true, (noEmit)
+        // "declarationDir": "./types", (noEmit)
+        // "declarationMap": true, (noEmit)
+        // "emitDeclarationOnly": false, (noEmit)
+        "noEmit": true,
+        // "outDir": "./dist", (noEmit)
+        // "removeComments": true, (noEmit)
+        // "sourceMap": true, (noEmit)
 
         // Javascript Support
         "allowJs": true,
@@ -64,7 +64,7 @@
         // Interop Constraints
         // allowSyntheticDefaultImports
         "esModuleInterop": true,
-        // forceConsistentCasingInFileNames (default: true)
+        "forceConsistentCasingInFileNames": true,
         // isolatedDeclarations
         // isolatedModules (default: true)
         // preserveSymlinks
