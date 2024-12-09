@@ -7,7 +7,7 @@
         "build": "tsup",
         "ci": "bun run build && bun run check-format && bun run check-exports && bun run lint",
         "format": "prettier --write .",
-        "check-format": "prettier --check .",
+        "check-format": "prettier --check . --ignore-rules=cjs-resolves-to-esm",
         "check-exports": "attw --pack .",
         "lint": "tsc"
     },
