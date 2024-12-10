@@ -1,7 +1,7 @@
 {
     "name": "caniemail-fetcher",
     "version": "1.0.0",
-    "main": "dist/main.js",
+    "main": "dist/index.js",
     "license": "MIT",
     "type": "module",
     "files": [
@@ -10,8 +10,8 @@
     "exports": {
         "./package.json": "./package.json",
         ".": {
-            "import": "./dist/main.js",
-            "require": "./dist/main.cjs"
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
         }
     },
     "scripts": {
