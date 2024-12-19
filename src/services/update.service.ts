@@ -135,6 +135,16 @@ export class UpdateService {
                     if (content.type === 'file' && content.content) {
                         const feature = fm(content.content).attributes;
 
+                        // Extract filename without extension and set it as the slug
+                        const fileNameWithoutExtension = path.basename(
+                            file.name,
+                            '.md',
+                        );
+
+                        // Use type assertion to set slug on attributes
+                        (feature as { slug: string }).slug =
+                            fileNameWithoutExtension;
+
                         if (FeatureTypeChecker.isFeature(feature)) {
                             return feature;
                         } else {

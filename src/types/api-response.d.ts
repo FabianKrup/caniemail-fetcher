@@ -6,6 +6,7 @@ export type ApiResponse = {
 };
 
 export type Feature = {
+    slug: string;
     title: string;
     description: string;
     category: keyof Category;
@@ -74,6 +75,7 @@ export class FeatureTypeChecker {
         return (
             obj &&
             typeof obj === 'object' &&
+            'slug' in obj &&
             'title' in obj &&
             'description' in obj &&
             'category' in obj &&
