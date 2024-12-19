@@ -7,6 +7,7 @@ export class CanIEmailFetcher {
     constructor(config: Config) {
         this.fetchService = new GithubFetchService(config);
 
+        console.log('GithubFetchService:', this.fetchService);
         console.log('Config:', config);
     }
 }
