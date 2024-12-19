@@ -3,6 +3,7 @@ import path from 'path';
 import * as sqlite3 from 'sqlite3';
 
 import type { Database } from 'sqlite3';
+
 export class DatabaseService {
     private db: Database | null = null;
 
