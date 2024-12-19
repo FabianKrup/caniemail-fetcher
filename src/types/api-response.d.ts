@@ -9,12 +9,15 @@ export type Feature = {
     slug: string;
     title: string;
     description: string;
+    url: string;
     category: keyof Category;
+    tags: string[];
     keywords: string;
     last_test_date: string;
     test_url: string;
     test_results_url: string;
     stats: Stats;
+    notes: string | null;
     notes_by_num: Record<string, string>;
     links: Record<string, string>;
 };
@@ -78,12 +81,15 @@ export class FeatureTypeChecker {
             'slug' in obj &&
             'title' in obj &&
             'description' in obj &&
+            'url' in obj &&
             'category' in obj &&
+            'tags' in obj &&
             'keywords' in obj &&
             'last_test_date' in obj &&
             'test_url' in obj &&
             'test_results_url' in obj &&
             'stats' in obj &&
+            'notes' in obj &&
             'notes_by_num' in obj &&
             'links' in obj
         );
