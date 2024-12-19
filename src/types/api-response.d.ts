@@ -25,15 +25,15 @@ export type Nicenames = {
     category: Category;
 };
 
-export interface Family {
+interface Family {
     [key: string]: string;
 }
 
-export interface Platform {
+interface Platform {
     [key: string]: string;
 }
 
-export interface Support {
+interface Support {
     supported: string;
     mitigated: string;
     unsupported: string;
@@ -41,14 +41,14 @@ export interface Support {
     mixed: string;
 }
 
-export interface Category {
+interface Category {
     html: string;
     css: string;
     image: string;
     others: string;
 }
 
-export interface Stats {
+interface Stats {
     [platform: string]: {
         [device: string]: {
             [version: string]: string;
