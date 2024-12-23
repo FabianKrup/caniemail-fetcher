@@ -1,5 +1,5 @@
-import * as fs from 'fs';
-import path from 'path';
+import { existsSync, mkdirSync } from 'fs-extra';
+import { join, resolve } from 'path';
 import * as sqlite3 from 'sqlite3';
 
 import type { Database } from 'sqlite3';
@@ -8,13 +8,13 @@ export class DatabaseService {
     private db: Database | null = null;
 
     async connect(): Promise<void> {
-        const dataDirectory = path.resolve(process.cwd(), 'data');
+        const dataDirectory = resolve(process.cwd(), 'data');
 
-        if (!fs.existsSync(dataDirectory)) {
-            fs.mkdirSync(dataDirectory, { recursive: true });
+        if (!existsSync(dataDirectory)) {
+            mkdirSync(dataDirectory, { recursive: true });
         }
 
-        const databasePath = path.join(dataDirectory, 'database.sqlite');
+        const databasePath = join(dataDirectory, 'database.sqlite');
 
         this.db = new sqlite3.Database(databasePath);
 

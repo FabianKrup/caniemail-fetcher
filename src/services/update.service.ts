@@ -1,17 +1,17 @@
 import fm from 'front-matter';
-import * as fs from 'fs';
+import { writeFileSync } from 'fs';
 import { load as loadYaml } from 'js-yaml';
 import nunjucks from 'nunjucks';
-import * as path from 'path';
+import { basename, join } from 'path';
 
 import { type Config, defaultConfig } from '../config';
 import {
-    ApiResponseTypeChecker,
-    FeatureTypeChecker,
-    NicenamesTypeChecker,
     type ApiResponse,
+    ApiResponseTypeChecker,
     type Feature,
+    FeatureTypeChecker,
     type Nicenames,
+    NicenamesTypeChecker,
 } from '../types/api-response';
 import { GithubFetchService } from './github-fetch.service';
 
@@ -36,8 +36,8 @@ export class UpdateService {
                     3600000
         ) {
             this.lastUpdate = now;
-            fs.writeFileSync(
-                path.join(__dirname, '../../data/lastUpdate.json'),
+            writeFileSync(
+                join(__dirname, '../../data/lastUpdate.json'),
                 JSON.stringify({ lastUpdate: now }),
             );
         }
@@ -83,6 +83,8 @@ export class UpdateService {
             const apiResponse = this.nunjucks.renderString(fileBody, {
                 site,
             }) as unknown;
+
+            console.log(apiResponse);
 
             if (ApiResponseTypeChecker.isApiResponse(apiResponse)) {
                 return apiResponse;
@@ -136,7 +138,7 @@ export class UpdateService {
                         const temp = fm(content.content).attributes;
 
                         const feature = {
-                            slug: path.basename(file.name, '.md'),
+                            slug: basename(file.name, '.md'),
                             url: '',
                             tags: [],
                             notes: null,
