@@ -1,11 +1,11 @@
 import type { Config } from './config';
-import { GithubFetchService } from './services/github-fetch.service';
+import { UpdateService } from './services/update.service';
 
 export class CanIEmailFetcher {
-    private fetchService: GithubFetchService;
+    private fetchService: UpdateService;
 
     constructor(config: Config) {
-        this.fetchService = new GithubFetchService(config);
+        this.fetchService = new UpdateService(config);
 
         console.log('GithubFetchService:', this.fetchService);
         console.log('Config:', config);

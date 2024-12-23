@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync } from 'fs-extra';
+import { existsSync, mkdirSync } from 'fs';
 import { join, resolve } from 'path';
 import * as sqlite3 from 'sqlite3';
 

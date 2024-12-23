@@ -26,16 +26,14 @@
         // allowArbitraryExtensions
         "allowImportingTsExtensions": true,
         // allowUmdGlobalAccess
-        "baseUrl": "src",
+        // baseUrl
         // customConditions
         "module": "ESNext",
         "moduleResolution": "bundler",
         // moduleSuffixes
         // noResolve
         // noUncheckedSideEffectImports
-        "paths": {
-            "*": ["*"]
-        },
+        // paths
         "resolveJsonModule": true,
         // resolvePackageJsonExports (default: true)
         // resolvePackageJsonImports (default: true)
