@@ -12,32 +12,34 @@ const GITHUB_API_URL = 'https://api.github.com';
 const GITHUB_API_VERSION = '2022-11-28';
 
 export class GithubFetchService {
-    private readonly repo_owner: string;
-    private readonly repo_name: string;
+    private readonly repoOwner: string;
+    private readonly repoName: string;
+    private readonly githubToken: string | undefined;
 
     constructor(private config: Config) {
+        if (config.githubToken) {
+            this.githubToken = config.githubToken;
+        }
+
         const result = this.extractOwnerAndRepoFromGithubUrl(
             this.config?.repoUrl ?? defaultConfig.repoUrl,
         );
 
         if (result) {
             const { owner, repo } = result;
-            this.repo_owner = owner;
-            this.repo_name = repo;
+            this.repoOwner = owner;
+            this.repoName = repo;
         } else {
             throw new Error('Failed to extract owner and repo from URL');
         }
     }
 
     public async isPermissiveLicense(): Promise<boolean> {
-        const apiUrl = `${GITHUB_API_URL}/repos/${this.repo_owner}/${this.repo_name}/license`;
+        const apiUrl = `${GITHUB_API_URL}/repos/${this.repoOwner}/${this.repoName}/license`;
 
         try {
             const response = await axios.get(apiUrl, {
-                headers: {
-                    Accept: 'application/vnd.github+json',
-                    'X-GitHub-Api-Version': GITHUB_API_VERSION,
-                },
+                headers: this.getAuthHeaders(),
             });
 
             return ['mit', 'unlicense', 'apache-2.0'].includes(
@@ -50,14 +52,11 @@ export class GithubFetchService {
     }
 
     public async getLastUpdate(): Promise<string | null> {
-        const apiUrl = `${GITHUB_API_URL}/repos/${this.repo_owner}/${this.repo_name}/commits?per_page=1`;
+        const apiUrl = `${GITHUB_API_URL}/repos/${this.repoOwner}/${this.repoName}/commits?per_page=1`;
 
         try {
             const response = await axios.get(apiUrl, {
-                headers: {
-                    Accept: 'application/vnd.github+json',
-                    'X-GitHub-Api-Version': GITHUB_API_VERSION,
-                },
+                headers: this.getAuthHeaders(),
             });
 
             return response.data[0].commit.committer.date;
@@ -70,13 +69,13 @@ export class GithubFetchService {
     public async getContent(
         path: string,
     ): Promise<RepositoryContentDirectory | RepositoryContentFile> {
-        const apiUrl = `${GITHUB_API_URL}/repos/${this.repo_owner}/${this.repo_name}/contents/${path}`;
+        const apiUrl = `${GITHUB_API_URL}/repos/${this.repoOwner}/${this.repoName}/contents/${path}`;
 
         try {
             const response = await axios.get(apiUrl, {
                 headers: {
+                    ...this.getAuthHeaders(),
                     Accept: 'application/vnd.github.object+json',
-                    'X-GitHub-Api-Version': GITHUB_API_VERSION,
                 },
             });
 
@@ -103,5 +102,18 @@ export class GithubFetchService {
         } else {
             return null;
         }
+    }
+
+    private getAuthHeaders() {
+        const headers: Record<string, string> = {
+            Accept: 'application/vnd.github+json',
+            'X-GitHub-Api-Version': GITHUB_API_VERSION,
+        };
+
+        if (this.githubToken) {
+            headers['Authorization'] = `Bearer ${this.githubToken}`;
+        }
+
+        return headers;
     }
 }

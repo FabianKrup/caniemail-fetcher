@@ -1,5 +1,6 @@
 export type Config = {
     databasePath: string;
+    githubToken?: string;
 } & Partial<DefaultConfig>;
 
 type DefaultConfig = {
