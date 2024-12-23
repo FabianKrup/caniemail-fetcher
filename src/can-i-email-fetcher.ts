@@ -9,6 +9,5 @@ export class CanIEmailFetcher {
         this.fetchService = new UpdateService(config);
 
         console.log('GithubFetchService:', this.fetchService);
-        console.log('Config:', config);
     }
 }

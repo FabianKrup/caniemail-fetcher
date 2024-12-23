@@ -25,6 +25,8 @@ export class UpdateService {
         this.nunjucks.addFilter('jsonify', (value) => {
             return JSON.stringify(value, null, 2);
         });
+
+        this.fetchApiResponse();
     }
 
     async checkForUpdates(): Promise<void> {
@@ -44,9 +46,8 @@ export class UpdateService {
     }
 
     public async fetchApiResponse(): Promise<ApiResponse | null> {
-        const nicenames = await this.fetchNicenames();
-        const features = await this.fetchFeatures();
-        console.log(nicenames, features);
+        await this.fetchNicenames();
+        await this.fetchFeatures();
 
         const file = await this.fetchService.getContent('_js/api.json');
         const site = {
@@ -79,7 +80,13 @@ export class UpdateService {
         };
 
         if (file.type === 'file' && file.content) {
-            const fileBody = fm(file.content).body;
+            const binaryData = Uint8Array.from(atob(file.content), (c) =>
+                c.charCodeAt(0),
+            );
+            const decoder = new TextDecoder(file.encoding);
+            const fileContent = decoder.decode(binaryData);
+
+            const fileBody = fm(fileContent).body;
             const apiResponse = this.nunjucks.renderString(fileBody, {
                 site,
             }) as unknown;
@@ -102,7 +109,13 @@ export class UpdateService {
         const file = await this.fetchService.getContent('_data/nicenames.yml');
 
         if (file.type === 'file' && file.content) {
-            const nicenames = loadYaml(file.content);
+            const binaryData = Uint8Array.from(atob(file.content), (c) =>
+                c.charCodeAt(0),
+            );
+            const decoder = new TextDecoder(file.encoding);
+            const fileContent = decoder.decode(binaryData);
+
+            const nicenames = loadYaml(fileContent);
 
             if (NicenamesTypeChecker.isNicenames(nicenames)) {
                 return nicenames;
@@ -129,13 +142,20 @@ export class UpdateService {
             );
 
             const featureContents = await Promise.all(
-                markdownFiles.map(async (file) => {
-                    const content = await this.fetchService.getContent(
-                        file.path,
+                markdownFiles.map(async (filePointer) => {
+                    const file = await this.fetchService.getContent(
+                        filePointer.path,
                     );
 
-                    if (content.type === 'file' && content.content) {
-                        const temp = fm(content.content).attributes;
+                    if (file.type === 'file' && file.content) {
+                        const binaryData = Uint8Array.from(
+                            atob(file.content),
+                            (c) => c.charCodeAt(0),
+                        );
+                        const decoder = new TextDecoder(file.encoding);
+                        const fileContent = decoder.decode(binaryData);
+
+                        const temp = fm(fileContent).attributes;
 
                         const feature = {
                             slug: basename(file.name, '.md'),
