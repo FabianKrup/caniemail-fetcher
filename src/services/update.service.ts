@@ -1,19 +1,19 @@
+import { defaultConfig } from 'config';
 import fm from 'front-matter';
 import { writeFileSync } from 'fs';
 import { load as loadYaml } from 'js-yaml';
 import nunjucks from 'nunjucks';
 import { basename, join } from 'path';
 
-import { type Config, defaultConfig } from 'config';
 import {
-    type ApiResponse,
     ApiResponseTypeChecker,
-    type Feature,
     FeatureTypeChecker,
-    type Nicenames,
     NicenamesTypeChecker,
-} from 'types/api-response';
-import { GithubFetchService } from 'services/github-fetch.service';
+} from '../types/api-response.checker';
+import { GithubFetchService } from './github-fetch.service';
+
+import type { Config } from 'config';
+import type { ApiResponse, Feature, Nicenames } from 'types/api-response';
 
 export class UpdateService {
     private lastUpdate: Date | null = null;
