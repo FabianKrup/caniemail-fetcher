@@ -79,12 +79,15 @@ export class UpdateService {
             ],
         };
 
-        if (file.type === 'file' && file.content) {
-            const binaryData = Uint8Array.from(atob(file.content), (c) =>
-                c.charCodeAt(0),
-            );
-            const decoder = new TextDecoder(file.encoding);
-            const fileContent = decoder.decode(binaryData);
+        if (
+            file.type === 'file' &&
+            file.content &&
+            file.encoding === 'base64'
+        ) {
+            const fileContent = Buffer.from(
+                file.content,
+                file.encoding,
+            ).toString('utf-8');
 
             const fileBody = fm(fileContent).body;
             const apiResponse = this.nunjucks.renderString(fileBody, {
@@ -108,12 +111,15 @@ export class UpdateService {
     private async fetchNicenames(): Promise<Nicenames | null> {
         const file = await this.fetchService.getContent('_data/nicenames.yml');
 
-        if (file.type === 'file' && file.content) {
-            const binaryData = Uint8Array.from(atob(file.content), (c) =>
-                c.charCodeAt(0),
-            );
-            const decoder = new TextDecoder(file.encoding);
-            const fileContent = decoder.decode(binaryData);
+        if (
+            file.type === 'file' &&
+            file.content &&
+            file.encoding === 'base64'
+        ) {
+            const fileContent = Buffer.from(
+                file.content,
+                file.encoding,
+            ).toString('utf-8');
 
             const nicenames = loadYaml(fileContent);
 
@@ -147,13 +153,15 @@ export class UpdateService {
                         filePointer.path,
                     );
 
-                    if (file.type === 'file' && file.content) {
-                        const binaryData = Uint8Array.from(
-                            atob(file.content),
-                            (c) => c.charCodeAt(0),
-                        );
-                        const decoder = new TextDecoder(file.encoding);
-                        const fileContent = decoder.decode(binaryData);
+                    if (
+                        file.type === 'file' &&
+                        file.content &&
+                        file.encoding === 'base64'
+                    ) {
+                        const fileContent = Buffer.from(
+                            file.content,
+                            file.encoding,
+                        ).toString('utf-8');
 
                         const temp = fm(fileContent).attributes;
 
