@@ -26,7 +26,7 @@
         // allowArbitraryExtensions
         "allowImportingTsExtensions": true,
         // allowUmdGlobalAccess
-        // baseUrl
+        "baseUrl": "./src",
         // customConditions
         "module": "ESNext",
         "moduleResolution": "bundler",

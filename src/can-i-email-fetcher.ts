@@ -1,5 +1,5 @@
-import type { Config } from './config';
-import { UpdateService } from './services/update.service';
+import type { Config } from 'config';
+import { UpdateService } from 'services/update.service';
 
 export class CanIEmailFetcher {
     private fetchService: UpdateService;

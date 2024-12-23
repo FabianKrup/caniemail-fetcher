@@ -4,7 +4,7 @@ import { load as loadYaml } from 'js-yaml';
 import nunjucks from 'nunjucks';
 import { basename, join } from 'path';
 
-import { type Config, defaultConfig } from '../config';
+import { type Config, defaultConfig } from 'config';
 import {
     type ApiResponse,
     ApiResponseTypeChecker,
@@ -12,8 +12,8 @@ import {
     FeatureTypeChecker,
     type Nicenames,
     NicenamesTypeChecker,
-} from '../types/api-response';
-import { GithubFetchService } from './github-fetch.service';
+} from 'types/api-response';
+import { GithubFetchService } from 'services/github-fetch.service';
 
 export class UpdateService {
     private lastUpdate: Date | null = null;
