@@ -1,10 +1,3 @@
-export type ApiResponse = {
-    api_version: string;
-    last_update_date: string;
-    nicenames: Nicenames;
-    data: Feature[];
-};
-
 export type Feature = {
     slug: string;
     title: string;

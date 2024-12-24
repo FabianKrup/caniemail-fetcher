@@ -1,17 +1,4 @@
-import type { ApiResponse, Feature, Nicenames } from './api-response';
-
-export class ApiResponseTypeChecker {
-    static isApiResponse(obj: any): obj is ApiResponse {
-        return (
-            obj &&
-            typeof obj === 'object' &&
-            'api_version' in obj &&
-            'last_update_date' in obj &&
-            'nicenames' in obj &&
-            'data' in obj
-        );
-    }
-}
+import type { Feature, Nicenames } from './api-response';
 
 export class FeatureTypeChecker {
     static isFeature(obj: any): obj is Feature {

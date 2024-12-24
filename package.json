@@ -29,15 +29,13 @@
         "axios": "^1.7.9",
         "better-sqlite3": "^11.7.0",
         "front-matter": "^4.0.2",
-        "js-yaml": "^4.1.0",
-        "nunjucks": "^3.2.4"
+        "js-yaml": "^4.1.0"
     },
     "devDependencies": {
         "@arethetypeswrong/cli": "^0.17.2",
         "@types/bun": "^1.1.14",
         "@types/js-yaml": "^4.0.9",
         "@types/node": "^22.10.2",
-        "@types/nunjucks": "^3.2.6",
         "@types/sqlite3": "^3.1.11",
         "@typescript-eslint/eslint-plugin": "^8.18.2",
         "@typescript-eslint/parser": "^8.18.2",
