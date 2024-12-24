@@ -15,8 +15,6 @@ export class CanIEmailFetcher {
         this.updateService.on(DATA_UPDATED_EVENT, (data) => {
             this.eventEmitter.emit('update', data);
         });
-
-        console.log('UpdateService:', this.updateService);
     }
 
     public onUpdate(callback: (data: any) => void): void {
