@@ -4,4 +4,6 @@ export * from './can-i-email-fetcher';
 
 const fetcher = new CanIEmailFetcher({ databasePath: '', updateInterval: 12 });
 
-console.log(fetcher);
+fetcher.onUpdate((data) => {
+    console.log('New data received:', data);
+});

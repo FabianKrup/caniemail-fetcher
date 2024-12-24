@@ -1,4 +1,5 @@
 import { defaultConfig } from 'config';
+import EventEmitter from 'events';
 import { writeFileSync } from 'fs';
 import { load as loadYaml } from 'js-yaml';
 import { basename, join } from 'path';
@@ -7,17 +8,19 @@ import {
     FeatureTypeChecker,
     NicenamesTypeChecker,
 } from '../types/api-response.checker';
+import { frontmatterParse } from './frontmatter.service';
 import { GithubFetchService } from './github-fetch.service';
 
 import type { Config } from 'config';
 import type { Feature, Nicenames } from 'types/api-response';
-import { frontmatterParse } from './frontmatter.service';
 
-export class UpdateService {
+export class UpdateService extends EventEmitter {
     private lastUpdate: Date | null = null;
     private readonly fetchService: GithubFetchService;
 
     constructor(private config: Config) {
+        super();
+
         this.fetchService = new GithubFetchService(this.config);
 
         this.fetchApiResponse();
