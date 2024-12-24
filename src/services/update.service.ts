@@ -108,9 +108,15 @@ export class UpdateService {
 
                         const feature = {
                             slug: basename(file.name, '.md'),
+                            description: null,
                             url: '',
                             tags: [],
+                            keywords: null,
+                            test_url: null,
+                            test_results_url: null,
                             notes: null,
+                            notes_by_num: null,
+                            links: null,
                             ...(typeof temp === 'object' ? temp : {}),
                         };
 
