@@ -1,5 +1,4 @@
 import { defaultConfig } from 'config';
-import fm from 'front-matter';
 import { writeFileSync } from 'fs';
 import { load as loadYaml } from 'js-yaml';
 import { basename, join } from 'path';
@@ -12,6 +11,7 @@ import { GithubFetchService } from './github-fetch.service';
 
 import type { Config } from 'config';
 import type { Feature, Nicenames } from 'types/api-response';
+import { frontmatterParse } from './frontmatter.service';
 
 export class UpdateService {
     private lastUpdate: Date | null = null;
@@ -102,7 +102,9 @@ export class UpdateService {
                             file.encoding,
                         ).toString('utf-8');
 
-                        const temp = fm(fileContent).attributes;
+                        const temp = frontmatterParse(fileContent, {
+                            ignoreDuplicateKeys: true,
+                        }).attributes;
 
                         const feature = {
                             slug: basename(file.name, '.md'),
