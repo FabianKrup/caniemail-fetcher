@@ -1,6 +1,5 @@
 import { defaultConfig } from 'config';
 import EventEmitter from 'events';
-import { writeFileSync } from 'fs';
 import { load as loadYaml } from 'js-yaml';
 import { basename, join } from 'path';
 
@@ -28,17 +27,14 @@ export class UpdateService extends EventEmitter {
 
     async checkForUpdates(): Promise<void> {
         const now = new Date();
+
         if (
             !this.lastUpdate ||
             now.getTime() - this.lastUpdate.getTime() >
                 (this.config.updateInterval || defaultConfig.updateInterval) *
-                    3600000
+                    3600000 // Convert hours to milliseconds (1 hour = 3600000 ms)
         ) {
             this.lastUpdate = now;
-            writeFileSync(
-                join(__dirname, '../../data/lastUpdate.json'),
-                JSON.stringify({ lastUpdate: now }),
-            );
         }
     }
 
