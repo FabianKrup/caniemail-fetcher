@@ -1,3 +1,9 @@
+export type ApiResponse = {
+    last_update_date: string;
+    nicenames: Nicenames;
+    data: Feature[];
+};
+
 export type Feature = {
     slug: string;
     title: string;

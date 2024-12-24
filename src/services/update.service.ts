@@ -1,7 +1,7 @@
 import { defaultConfig } from 'config';
 import EventEmitter from 'events';
 import { load as loadYaml } from 'js-yaml';
-import { basename, join } from 'path';
+import { basename } from 'path';
 
 import {
     FeatureTypeChecker,
@@ -11,7 +11,7 @@ import { frontmatterParse } from './frontmatter.service';
 import { GithubFetchService } from './github-fetch.service';
 
 import type { Config } from 'config';
-import type { Feature, Nicenames } from 'types/api-response';
+import type { ApiResponse, Feature, Nicenames } from 'types/api-response';
 
 export class UpdateService extends EventEmitter {
     private lastUpdate: Date | null = null;
@@ -23,6 +23,7 @@ export class UpdateService extends EventEmitter {
         this.fetchService = new GithubFetchService(this.config);
 
         this.fetchApiResponse();
+        setInterval(() => this.checkForUpdates(), 3600000);
     }
 
     async checkForUpdates(): Promise<void> {
@@ -35,15 +36,23 @@ export class UpdateService extends EventEmitter {
                     3600000 // Convert hours to milliseconds (1 hour = 3600000 ms)
         ) {
             this.lastUpdate = now;
+            this.fetchApiResponse();
         }
     }
 
-    public async fetchApiResponse(): Promise<void> {
+    public async fetchApiResponse(): Promise<ApiResponse | null> {
         const nicenames = await this.fetchNicenames();
         const features = await this.fetchFeatures();
 
-        console.log('Nicenames:', nicenames);
-        console.log('Features:', features);
+        if (!nicenames || !features) {
+            return null;
+        }
+
+        return {
+            last_update_date: new Date().toISOString(),
+            nicenames: nicenames,
+            data: features,
+        };
     }
 
     private async fetchNicenames(): Promise<Nicenames | null> {
