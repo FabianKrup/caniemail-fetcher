@@ -13,6 +13,8 @@ import { GithubFetchService } from './github-fetch.service';
 import type { Config } from 'config';
 import type { ApiResponse, Feature, Nicenames } from 'types/api-response';
 
+export const DATA_UPDATED_EVENT = 'dataUpdated';
+
 export class UpdateService extends EventEmitter {
     private lastUpdate: Date | null = null;
     private readonly fetchService: GithubFetchService;
@@ -40,19 +42,19 @@ export class UpdateService extends EventEmitter {
         }
     }
 
-    public async fetchApiResponse(): Promise<ApiResponse | null> {
+    public async fetchApiResponse(): Promise<void> {
         const nicenames = await this.fetchNicenames();
         const features = await this.fetchFeatures();
 
-        if (!nicenames || !features) {
-            return null;
-        }
+        if (nicenames && features) {
+            const apiResponse: ApiResponse = {
+                last_update_date: new Date().toISOString(),
+                nicenames: nicenames,
+                data: features,
+            };
 
-        return {
-            last_update_date: new Date().toISOString(),
-            nicenames: nicenames,
-            data: features,
-        };
+            this.emit(DATA_UPDATED_EVENT, apiResponse);
+        }
     }
 
     private async fetchNicenames(): Promise<Nicenames | null> {

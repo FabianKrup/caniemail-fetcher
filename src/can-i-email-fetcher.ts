@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
 
-import { UpdateService } from './services/update.service';
+import { DATA_UPDATED_EVENT, UpdateService } from './services/update.service';
 
 import type { Config } from 'config';
 
@@ -12,7 +12,7 @@ export class CanIEmailFetcher {
         this.updateService = new UpdateService(config);
         this.eventEmitter = new EventEmitter();
 
-        this.updateService.on('dataUpdated', (data) => {
+        this.updateService.on(DATA_UPDATED_EVENT, (data) => {
             this.eventEmitter.emit('update', data);
         });
 
