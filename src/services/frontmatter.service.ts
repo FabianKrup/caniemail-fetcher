@@ -1,4 +1,4 @@
-import * as yaml from 'js-yaml';
+import { load, loadAll } from 'js-yaml';
 
 const optionalByteOrderMark = '\\ufeff?';
 const platform = typeof process !== 'undefined' ? process.platform : '';
@@ -67,7 +67,7 @@ export function frontmatterParse(
     let attributes: Record<string, unknown> = {};
 
     if (options?.ignoreDuplicateKeys) {
-        yaml.loadAll(
+        loadAll(
             yamlContent,
             (doc) => {
                 attributes = {
@@ -78,7 +78,7 @@ export function frontmatterParse(
             { json: true },
         );
     } else {
-        attributes = (yaml.load(yamlContent) as Record<string, unknown>) || {};
+        attributes = (load(yamlContent) as Record<string, unknown>) || {};
     }
 
     const body = string.replace(match[0], '');
