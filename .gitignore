@@ -3,9 +3,3 @@ node_modules/
 
 # Build files
 dist/
-
-# Data (local data, caches, etc.)
-data/
-
-# Sensitive environment variables
-.env
