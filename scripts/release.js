@@ -1,7 +1,7 @@
 import { join } from 'path';
 import { exec, getExecOutput } from '@actions/exec';
 
-import { version } from '../package.json';
+import { version } from '../package.json' assert { type: 'json' };
 const tag = `v${version}`;
 const releaseLine = `v${version.split('.')[0]}`;
 
