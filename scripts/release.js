@@ -1,11 +1,11 @@
-const path = require('path');
-const { exec, getExecOutput } = require('@actions/exec');
+import { join } from 'path';
+import { exec, getExecOutput } from '@actions/exec';
 
-const { version } = require('../package.json');
+import { version } from '../package.json';
 const tag = `v${version}`;
 const releaseLine = `v${version.split('.')[0]}`;
 
-process.chdir(path.join(__dirname, '..'));
+process.chdir(join(__dirname, '..'));
 
 (async () => {
     const { exitCode, stderr } = await getExecOutput(
