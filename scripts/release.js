@@ -1,9 +1,11 @@
-import { join } from 'path';
+import { dirname, join } from 'path';
 import { exec, getExecOutput } from '@actions/exec';
 
 import packageJson from '../package.json' assert { type: 'json' };
 
-console.log(packageJson);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const { version } = packageJson;
 const tag = `v${version}`;
 const releaseLine = `v${version.split('.')[0]}`;
