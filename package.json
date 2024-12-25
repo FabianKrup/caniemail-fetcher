@@ -21,9 +21,7 @@
         "build": "tsup",
         "check-format": "prettier --check .",
         "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
-        "lint": "tsc",
-        "local-release": "changeset version && changeset publish",
-        "prepublishOnly": "bun run ci"
+        "lint": "tsc"
     },
     "dependencies": {
         "axios": "^1.7.9",
@@ -31,7 +29,6 @@
     },
     "devDependencies": {
         "@arethetypeswrong/cli": "^0.17.2",
-        "@changesets/cli": "^2.27.11",
         "@types/js-yaml": "^4.0.9",
         "@types/node": "^22.10.2",
         "prettier": "^3.4.2",
