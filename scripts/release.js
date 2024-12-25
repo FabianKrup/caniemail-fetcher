@@ -1,4 +1,5 @@
 import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 import { exec, getExecOutput } from '@actions/exec';
 
 import packageJson from '../package.json' assert { type: 'json' };
