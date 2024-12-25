@@ -23,7 +23,6 @@
         "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
         "lint": "tsc",
         "changeset": "changeset",
-        "bump": "node ./scripts/bump.cjs",
         "release": "node ./scripts/release.cjs",
         "prepublishOnly": "bun run ci"
     },
