@@ -1,5 +1,11 @@
 # caniemail-fetcher
 
+## 1.0.2
+
+### Patch Changes
+
+- [`7e49155`](https://github.com/FabianKrup/caniemail-fetcher/commit/7e491554419a98a5cc0c9f98979c94700060ebdc) Thanks [@FabianKrup](https://github.com/FabianKrup)! - Test Patch Versioning
+
 ## 1.0.1
 
 ### Patch Changes
