@@ -22,7 +22,8 @@
         "check-format": "prettier --check .",
         "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
         "lint": "tsc",
-        "changeset": "changeset"
+        "changeset": "changeset",
+        "release": "node ./scripts/release.cjs"
     },
     "dependencies": {
         "axios": "^1.7.9",
