@@ -28,11 +28,6 @@ jobs:
             - name: Run CI
               run: bun run ci
 
-            - name: Setup npm
-              run: npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
-              env:
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
             - name: Create Release Pull Request or Publish to npm
               id: changesets
               uses: changesets/action@v1
@@ -40,3 +35,4 @@ jobs:
                   publish: bun run release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
