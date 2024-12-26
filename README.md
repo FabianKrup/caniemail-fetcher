@@ -16,7 +16,7 @@
   <h3 align="center">Can I email… - Fetcher</h3>
 
   <p align="center">
-    An easy to use npm package to integrate the up to date data from the [Can I email… Project](https://github.com/hteumeuleu/caniemail).
+    An easy to use npm package to integrate the up to date data from the <a href="https://github.com/hteumeuleu/caniemail">Can I email… Project</a>.
     <br />
     <a href="https://github.com/FabianKrup/caniemail-fetcher"><strong>Explore the docs »</strong></a>
     <br />
@@ -24,6 +24,7 @@
     <a href="https://github.com/FabianKrup/caniemail-fetcher/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
     <a href="https://github.com/FabianKrup/caniemail-fetcher/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+
   </p>
 </div>
 
