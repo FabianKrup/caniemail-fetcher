@@ -1,5 +1,11 @@
 # caniemail-fetcher
 
+## 1.0.4
+
+### Patch Changes
+
+- [`6202102`](https://github.com/FabianKrup/caniemail-fetcher/commit/62021029be128300144ed3d91faceb29715f0f10) Thanks [@FabianKrup](https://github.com/FabianKrup)! - Cache Api Response and add getters
+
 ## 1.0.3
 
 ### Patch Changes
