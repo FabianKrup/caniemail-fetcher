@@ -32,6 +32,10 @@
         }
     },
     "main": "dist/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/FabianKrup/caniemail-fetcher.git"
+    },
     "scripts": {
         "start": "node dist/index.js",
         "ci": "bun run build && bun run check-format && bun run check-exports && bun run lint",
