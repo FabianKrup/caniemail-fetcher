@@ -63,7 +63,7 @@ coming soon...
 ### Built With
 
 - [![Typescript][Typescript]][Typescript-url]
-- [![Bun][Bun]](Bun-url)
+- [![Bun][Bun]][Bun-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
