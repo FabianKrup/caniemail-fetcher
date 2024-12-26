@@ -1,5 +1,0 @@
----
-'caniemail-fetcher': patch
----
-
-Initial
