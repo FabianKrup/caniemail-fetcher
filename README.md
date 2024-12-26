@@ -117,7 +117,7 @@ Project Link: [https://github.com/FabianKrup/caniemail-fetcher](https://github.c
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## Acknowledgements
+## Acknowledgments
 
 This project makes extensive use of the data provided by the [Can I email…](https://github.com/hteumeuleu/caniemail) project. We are deeply grateful for their hard work and dedication to improving email standards and compatibility across different platforms. Their project serves as the foundation upon which our tool builds to provide up-to-date email client compatibility information.
 
