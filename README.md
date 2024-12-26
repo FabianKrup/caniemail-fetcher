@@ -16,7 +16,7 @@
   <h3 align="center">Can I email… - Fetcher</h3>
 
   <p align="center">
-    An easy to use npm package to integrate the up to date data from the <a href="https://github.com/hteumeuleu/caniemail">Can I email… Project</a>.
+    An easy to use npm package to integrate the up to date data from the <a href="https://github.com/hteumeuleu/caniemail">Can I email…</a> project.
     <br />
     <a href="https://github.com/FabianKrup/caniemail-fetcher"><strong>Explore the docs »</strong></a>
     <br />
