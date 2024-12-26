@@ -48,6 +48,7 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -111,6 +112,14 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Project Link: [https://github.com/FabianKrup/caniemail-fetcher](https://github.com/FabianKrup/caniemail-fetcher)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## Acknowledgements
+
+This project makes extensive use of the data provided by the [Can I email…](https://github.com/hteumeuleu/caniemail) project. We are deeply grateful for their hard work and dedication to improving email standards and compatibility across different platforms. Their project serves as the foundation upon which our tool builds to provide up-to-date email client compatibility information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
