@@ -89,10 +89,16 @@ coming soon...
 ```js
 import { CanIEmailFetcher } from 'caniemail-fetcher';
 
-const fetcher = new CanIEmailFetcher();
+// Optional settings
+const options = {
+    githubToken: 'YOUR_GITHUB_TOKEN', // Optional, removes GitHub API rate limit
+    updateInterval: 12 // Optional, interval to check for updates in hours, default is 24
+};
+
+const fetcher = new CanIEmailFetcher(options);
 
 // Update Listener
-const updateListener = (data: ApiResponse) => {
+const updateListener = (data) => {
     console.log("Update event received", data);
 };
 
@@ -101,7 +107,6 @@ fetcher.onUpdate(updateListener);
 
 // Stop listening for updates
 fetcher.offUpdate(updateListener);
-```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -154,3 +159,4 @@ This project makes extensive use of the data provided by the [Can I email…](ht
 [Typescript-url]: https://www.typescriptlang.org/
 [Bun]: https://img.shields.io/badge/Bun-000?logo=bun&logoColor=fff
 [Bun-url]: https://bun.sh/
+```
