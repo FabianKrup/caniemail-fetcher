@@ -73,11 +73,12 @@ coming soon...
 
 ## Getting Started
 
-coming soon...
-
 ### Installation
 
-coming soon...
+1. Install NPM packages
+    ```sh
+    npm i caniemail-fetcher
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
