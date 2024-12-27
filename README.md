@@ -86,7 +86,22 @@ coming soon...
 
 ## Usage
 
-coming soon...
+```js
+import { CanIEmailFetcher } from 'caniemail-fetcher';
+
+const fetcher = new CanIEmailFetcher();
+
+// Update Listener
+const updateListener = (data: ApiResponse) => {
+    console.log("Update event received", data);
+};
+
+// Listen for updates
+fetcher.onUpdate(updateListener);
+
+// Stop listening for updates
+fetcher.offUpdate(updateListener);
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
