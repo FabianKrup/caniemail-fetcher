@@ -75,7 +75,7 @@ coming soon...
 
 ### Installation
 
-1. Install NPM packages
+1. Install NPM package
     ```sh
     npm i caniemail-fetcher
     ```
