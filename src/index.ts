@@ -1,3 +1,3 @@
 export * from './can-i-email-fetcher';
 
-export * from './types/api-response';
+export * from './types/api-response.type';

@@ -3,7 +3,7 @@ import EventEmitter from 'events';
 import { DATA_UPDATED_EVENT, UpdateService } from './services/update.service';
 
 import type { Config } from 'config';
-import type { ApiResponse, Nicenames } from 'types/api-response';
+import type { ApiResponse, Nicenames } from 'types/api-response.type';
 
 export class CanIEmailFetcher {
     private readonly updateService: UpdateService;

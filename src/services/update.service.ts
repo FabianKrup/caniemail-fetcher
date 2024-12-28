@@ -11,7 +11,7 @@ import { frontmatterParse } from './frontmatter.service';
 import { GithubFetchService } from './github-fetch.service';
 
 import type { Config } from 'config';
-import type { ApiResponse, Feature, Nicenames } from 'types/api-response';
+import type { ApiResponse, Feature, Nicenames } from 'types/api-response.type';
 
 export const DATA_UPDATED_EVENT = 'dataUpdated';
 

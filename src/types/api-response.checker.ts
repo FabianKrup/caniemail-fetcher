@@ -1,4 +1,4 @@
-import type { Feature, Nicenames } from './api-response';
+import type { Feature, Nicenames } from './api-response.type';
 
 export class FeatureTypeChecker {
     static isFeature(obj: any): obj is Feature {
