@@ -32,6 +32,13 @@ jobs:
             - name: Run CI
               run: bun run ci
 
+            - name: Snyk Vulnerability Scan
+              uses: snyk/actions/node@master
+              env:
+                  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+              with:
+                  args: --severity-threshold=high
+
             - name: Create Release Pull Request or Publish to npm
               id: changesets
               uses: changesets/action@v1
