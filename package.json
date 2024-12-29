@@ -1,6 +1,6 @@
 {
     "name": "caniemail-fetcher",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "An easy to use npm package to integrate the up to date data from the Can I email… project",
     "keywords": [
         "email-compatibility",
